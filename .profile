@@ -54,3 +54,13 @@ export EDITOR="vim"
 if [ -e ~/.profile_local ]; then
   source ~/.profile_local
 fi
+
+# ack-grep like functionality for searching through pdf files
+function pdf-ack-grep ()
+{
+  if hash pdftotext 2>/dev/null; then
+    find . -name '*.pdf' -exec sh -c 'pdftotext "{}" - | grep --with-filename --label="{}" --color '"$1" \;
+  else
+    echo "pdftotext not found. Please install the pdftotext utility to use this function."
+  fi
+}

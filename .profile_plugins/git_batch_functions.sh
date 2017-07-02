@@ -94,5 +94,5 @@ batch_git_add_remote() {
     git remote add $1 $bare_repo
     branch=$(git status | head -n 1 | cut -d ' ' -f 3)
     cd ..
-  done
+  done <<< "$repos"
 }

@@ -44,6 +44,7 @@ batch_git_set_upstream() {
 #  $1 the remote's name
 #  $2 the remote's url
 batch_git_create_bare_remote() {
+  current_dir=$(pwd)
   local repos=$(find_git_repos)
   while read -r repo; do
     cd $repo
@@ -59,7 +60,7 @@ batch_git_create_bare_remote() {
     git push $1 $branch
 
     echo "Pushed branch: $branch to bare repository $1"
-    cd -
+    cd $current_dir
   done <<< "$repos"
 }
 

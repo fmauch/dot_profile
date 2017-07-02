@@ -35,7 +35,7 @@ batch_git_set_upstream() {
     echo "Branch: $branch"
     list=$(git remote -v | cut -f 1 | sort -u)
     [[ $list =~ $1 ]] && echo "Setting upstream to $1"; git branch --set-upstream-to=$1/${branch} || echo "Remote $1 does not exist. Skipping repository"
-    cd ..
+    cd -
   done <<< "$repos"
 }
 
@@ -59,7 +59,7 @@ batch_git_create_bare_remote() {
     git push $1 $branch
 
     echo "Pushed branch: $branch to bare repository $1"
-    cd ..
+    cd -
   done <<< "$repos"
 }
 
@@ -76,7 +76,7 @@ batch_git_set_remote_url() {
     bare_repo=$2/$repo
     git remote set-url $1 $bare_repo
     branch=$(git status | head -n 1  | cut -d ' ' -f 3)
-    cd ..
+    cd -
   done <<< "$repos"
 }
 
@@ -93,6 +93,6 @@ batch_git_add_remote() {
     bare_repo=$2/$repo
     git remote add $1 $bare_repo
     branch=$(git status | head -n 1 | cut -d ' ' -f 3)
-    cd ..
+    cd -
   done <<< "$repos"
 }

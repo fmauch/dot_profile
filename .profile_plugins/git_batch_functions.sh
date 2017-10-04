@@ -1,13 +1,13 @@
 #!/bin/bash
 
 find_git_repos() {
-  ignore_pattern="./3rdparty"
+  ignore_pattern="\(3\|\(t\|T\)hi\)rd_\?\(p\|P\)arty"
   if [ "$#" -gt 0 ]; then
     if [ $1 = "-a" ]; then
       ignore_pattern="*"
     fi
   fi
-  local repos=`find . -name ".git" -type d | sed 's/\/.git//' | grep -v $ignore_pattern | sort`
+  local repos=`find . -name ".git" -type d | sed 's/\/.git//' | grep -v "$ignore_pattern" | sort`
   for repo in $repos; do
     echo $repo
   done

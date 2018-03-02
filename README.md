@@ -1,7 +1,7 @@
 # dot_profile
 This package holds my personal profile config. Note that I go a little different way than e.g.
 Ubuntu goes by default. As I use both bash and zsh on different machines but I like to have almost
-the same configuration on both machines I handle most of my settings to the `~/.profile` file which
+the same configuration on both machines I handle most of my settings to the `~/.shellrc` file which
 will then be sourced either by the '~/.zshrc' or the '~/.bashrc' respectively.
 
 This way I have the same configuration no matter whether I work on the machine via ssh or login
@@ -9,10 +9,6 @@ locally.
 
 ## Installation
 ### Manual installation
-Note: On some systems (such as ubuntu) you'll have to delete (or mv away) the `~/.profile` file as
-this will be overwritten by this repository. Having this file present prevents the stow command from
-properly installing.
-
 This repository is prepared to be used together with gnu stow. See [Brandon Invergo's
 explanation](http://brandon.invergo.net/news/2012-05-26-using-gnu-stow-to-manage-your-dotfiles.html)
 on how to use it. In short

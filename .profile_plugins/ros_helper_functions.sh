@@ -20,7 +20,7 @@ set_ros_master_uri() {
   devices_string=""
   for device in ${devices[@]}
   do
-      ip=`ifconfig $device | grep "inet addr" | cut -d ":" -f 2 | cut -d " " -f 1`
+      ip=$(ip addr show $device | grep "inet\ " | sed -e 's/^\s\+inet\ //' | sed -e 's/\/.*//')
       if [ -n "$ip" ]; then
           devices_string+="$ip $device "
       fi

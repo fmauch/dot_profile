@@ -9,7 +9,7 @@ find_git_repos() {
   fi
   local repos=`find . -name ".git" -type d | sed 's/\/.git//' | grep -v "$ignore_pattern" | sort`
   for repo in $repos; do
-    echo $repo
+    echo $repo | sed 's/^\.\///'
   done
 }
 

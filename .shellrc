@@ -49,7 +49,7 @@ if [ -e ~/.shellrc_local ]; then
   source ~/.shellrc_local
 fi
 
-if [ -f ~/.fzf.zsh ]; then
+if [ ! -f ~/.fzf.zsh ]; then
   echo "Performing initial setup of fzf"
   # We install without shell setup as we do this in our individual shells
   git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install --no-bash --no-zsh --no-fish

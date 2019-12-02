@@ -24,6 +24,7 @@ export __GL_SHADER_DISK_CACHE=0
 source $HOME/.profile_plugins/git_batch_functions.sh
 source $HOME/.profile_plugins/ros_helper_functions.sh
 source $HOME/.profile_plugins/docker_functions.sh
+source $HOME/.profile_plugins/fzf_completions.sh
 
 
 # default aliases
@@ -52,6 +53,5 @@ fi
 if [ ! -f ~/.fzf.zsh ]; then
   echo "Performing initial setup of fzf"
   # We install without shell setup as we do this in our individual shells
-  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install --no-bash --no-zsh --no-fish
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
 fi
-

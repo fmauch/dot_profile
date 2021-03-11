@@ -11,7 +11,8 @@ fi
 
 # local_install
 if [ -d "$HOME/local_install/install" ] ; then
-    export PATH="$HOME/local_install:$PATH"
+    export PATH="$HOME/local_install/install/bin:$PATH"
+    export PATH="$HOME/local_install/install/usr/local/bin:$PATH"
     export CMAKE_PREFIX_PATH="$HOME/local_install/install:$CMAKE_PREFIX_PATH"
     export CPLUS_INCLUDE_PATH="$HOME/local_install/install/include:$CPLUS_INCLUDE_PATH=" 
     export C_INCLUDE_PATH="$HOME/local_install/install/include:$C_INCLUDE_PATH=" 

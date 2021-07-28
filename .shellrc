@@ -65,7 +65,7 @@ fi
 
 # Setup default theme
 if [ ! -f .base16_theme ]; then
-  ln -s ~/.config/base16-shell/scripts/base16-solarized-dark.sh
+  ln -s ~/.config/base16-shell/scripts/base16-solarized-dark.sh .base16_theme
 fi
 
 if [ $TERM != "konsole-256color" ]; then

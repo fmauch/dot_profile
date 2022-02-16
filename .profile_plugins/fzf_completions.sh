@@ -26,3 +26,16 @@ _fzf_complete_rosparam() {
   )
 }
 
+_fzf_complete_roslaunch() {
+  ARGS="$@"
+  _fzf_complete "--sort" "$@" < <(
+  { rospack list-names }
+  )
+}
+
+_fzf_complete_rosrun() {
+  ARGS="$@"
+  _fzf_complete "--sort" "$@" < <(
+  { rospack list-names }
+  )
+}

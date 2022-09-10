@@ -57,16 +57,17 @@ if [ ! -f ~/.fzf.zsh ]; then
   git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
 fi
 
+# Setup default theme
+if [ ! -f ~/.base16_theme ]; then
+  ln -s ~/.config/base16-shell/scripts/base16-solarized-dark.sh ~/.base16_theme
+fi
+
 # Base16 Shell
 if [ ! -f ~/.config/base16-shell/profile_helper.sh ]; then
   echo "Performing initial setup of fzf"
   git clone --depth 1 https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
 fi
 
-# Setup default theme
-if [ ! -f ~/.base16_theme ]; then
-  ln -s ~/.config/base16-shell/scripts/base16-solarized-dark.sh ~/.base16_theme
-fi
 
 if [ $TERM != "konsole-256color" ]; then
   BASE16_SHELL="$HOME/.config/base16-shell/"

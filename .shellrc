@@ -58,9 +58,7 @@ if [ ! -f ~/.fzf.zsh ]; then
 fi
 
 # Setup default theme
-if [ ! -f ~/.base16_theme ]; then
-  ln -s ~/.config/base16-shell/scripts/base16-solarized-dark.sh ~/.base16_theme
-fi
+BASE16_DEFAULT_THEME=solarized-dark
 
 # Base16 Shell
 if [ ! -f ~/.config/base16-shell/profile_helper.sh ]; then
@@ -69,7 +67,5 @@ if [ ! -f ~/.config/base16-shell/profile_helper.sh ]; then
 fi
 
 
-if [ $TERM != "konsole-256color" ]; then
-  BASE16_SHELL="$HOME/.config/base16-shell/"
-  [ -n "$PS1" ] && [ -s "$BASE16_SHELL/profile_helper.sh" ] && eval "$("$BASE16_SHELL/profile_helper.sh")"
-fi
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && [ -s "$BASE16_SHELL/profile_helper.sh" ] && source "$BASE16_SHELL/profile_helper.sh"

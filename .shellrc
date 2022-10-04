@@ -73,7 +73,7 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 
 # Base16 Shell
 if [ ! -f ~/.config/base16-shell/profile_helper.sh ]; then
-  echo "Performing initial setup of fzf"
+  echo "Performing initial setup of base16"
   mkdir -p $BASE16_SHELL
   pushd $BASE16_SHELL
   git init

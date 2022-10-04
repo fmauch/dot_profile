@@ -1,21 +1,31 @@
 #/* vim: set filetype=sh : */
 
+function prepend_path ()
+{
+  [[ ":$PATH:" != *":$1:"* ]] && export PATH="$1:${PATH}"
+}
+
+function prepend_cmake_prefixpath ()
+{
+  [[ ":$CMAKE_PREFIX_PATH:" != *":$1:"* ]] && export CMAKE_PREFIX_PATH="$1:${CMAKE_PREFIX_PATH}"
+}
+
 # ~/.shellrc is a common config file that can be sourced by either bash or zsh
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
+    prepend_path "$HOME/bin"
 fi
 if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
+    prepend_path "$HOME/.local/bin"
 fi
 
 # local_install
 if [ -d "$HOME/local_install/install" ] ; then
-    export PATH="$HOME/local_install/install/bin:$PATH"
-    export PATH="$HOME/local_install/install/usr/local/bin:$PATH"
-    export CMAKE_PREFIX_PATH="$HOME/local_install/install:$CMAKE_PREFIX_PATH"
-    export CPLUS_INCLUDE_PATH="$HOME/local_install/install/include:$CPLUS_INCLUDE_PATH=" 
-    export C_INCLUDE_PATH="$HOME/local_install/install/include:$C_INCLUDE_PATH=" 
+    prepend_path "$HOME/local_install/install/bin"
+    prepend_path "$HOME/local_install/install/usr/local/bin"
+    prepend_cmake_prefixpath "$HOME/local_install/install"
+    export CPLUS_INCLUDE_PATH="$HOME/local_install/install/include:$CPLUS_INCLUDE_PATH="
+    export C_INCLUDE_PATH="$HOME/local_install/install/include:$C_INCLUDE_PATH="
 fi
 
 # This is supposed to help with the nvidia refresh issue. Well, apparently it doesn't :(

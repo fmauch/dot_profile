@@ -39,3 +39,11 @@ _fzf_complete_rosrun() {
   { rospack list-names }
   )
 }
+
+_fzf_complete_ros2() {
+  ARGS="$@"
+  subcommand=$(echo "$1" | awk '{print $2}')
+  _fzf_complete "--sort" "$@" < <(
+  { ros2 $subcommand list }
+  )
+}

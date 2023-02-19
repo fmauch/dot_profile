@@ -28,9 +28,6 @@ if [ -d "$HOME/local_install/install" ] ; then
     export C_INCLUDE_PATH="$HOME/local_install/install/include:$C_INCLUDE_PATH="
 fi
 
-# This is supposed to help with the nvidia refresh issue. Well, apparently it doesn't :(
-export __GL_SHADER_DISK_CACHE=0
-
 # git batch stuff
 source $HOME/.profile_plugins/git_batch_functions.sh
 source $HOME/.profile_plugins/ros_helper_functions.sh

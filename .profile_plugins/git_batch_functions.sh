@@ -23,6 +23,8 @@ forgit_all() {
   find_git_repos -a | xargs -I{} sh -c "echo ========= {} =========; git -C {} $*;"
 }
 
+alias fgs="forgit status -bs"
+
 # use this function to set the upstream for all subfolders respecting the currently used branches
 # parameters:
 #  $1 remote_name

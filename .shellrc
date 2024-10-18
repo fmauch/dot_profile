@@ -90,4 +90,7 @@ fi
 export RCUTILS_COLORIZED_OUTPUT=1
 export RCUTILS_CONSOLE_OUTPUT_FORMAT="[{severity} {date_time_with_ms}] [{name}]: {message}"
 
+# Colored gtest output from ctest
+export GTEST_COLOR=1
+
 [ -n "$PS1"  ] && [ -s "$BASE16_SHELL/profile_helper.sh"  ] && eval "$("$BASE16_SHELL/profile_helper.sh")"

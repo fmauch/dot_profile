@@ -39,7 +39,7 @@ source $HOME/.profile_plugins/fzf_completions.sh
 
 
 # default aliases
-alias ls='ls --color=auto'
+alias ls='ls --color=auto --group-directories-first'
 alias psgrep='ps -aux | grep'
 
 # environment variables
